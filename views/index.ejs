@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="CatsApp">
+  <head>
+    <title><%= title %></title>
+    <!--<script src="/javascripts/jquery.min.js"></script>-->
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="/javascripts/angular-route.min.js"></script>
+    <script src="/javascripts/app.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <section ng-controller="CatsCtrl">
+      <form ng-submit="addCat(name, note)">
+        <input type="text" ng-model="name">
+        <input type="text" ng-model="note">
+        <input type="Submit" value="Add Cat!">
+      </form>
+
+      <hr>
+      <h2>Featured Cat!</h2>
+        <li ng-repeat="cat in cats">
+
+        </li>
+      <hr>
+      <h3>Cats for Adoption</h3>
+      <ul>
+        <li ng-repeat="cat in cats">
+          {{cat.name}} - <em>{{cat.note}}</em>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
