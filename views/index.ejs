@@ -12,24 +12,27 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <section ng-controller="CatsCtrl">
+      {{message}}
       <form ng-submit="addCat(name, note)">
         <input type="text" ng-model="name">
         <input type="text" ng-model="note">
         <input type="Submit" value="Add Cat!">
       </form>
-
-      <hr>
-      <h2>Featured Cat!</h2>
-        <li ng-repeat="cat in cats">
-
-        </li>
       <hr>
       <h3>Cats for Adoption</h3>
       <ul>
         <li ng-repeat="cat in cats">
           {{cat.name}} - <em>{{cat.note}}</em>
+          <!--<input type='hidden' value="{{cat.id}}" ng-model="id">-->
+          <button data-id="{{cat.id}}"
+                  ng-click="adoptCat(this)">Adopt Me!</button>
         </li>
       </ul>
+    </section>
+
+    <section ng-controller="PlaygroundCtrl">
+      The best movie of all time is {{movie.Title}}!
+      <button ng-click="changeMovie()"></button>
     </section>
   </body>
 </html>
