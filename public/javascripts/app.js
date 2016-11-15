@@ -2,6 +2,9 @@ console.log('There and back again: a hobbit\'s tale');
 
 var CatsApp = angular.module('CatsApp', ['ngRoute']);
 
+
+
+
 CatsApp.controller('PlaygroundCtrl', function($scope, $http) {
   $scope.url = 'http://www.omdbapi.com/?t=empire+strikes&y=&plot=short&r=json';
   $scope.movie = undefined;
@@ -58,4 +61,10 @@ CatsApp.controller('CatsCtrl', function($scope, $http) {
   // run code now that everything is defined :)
   $scope.populateList();
 
+});
+
+CatsApp.directive('cat-item-view', function() {
+  return {
+    templateUrl: '/ng-views/cat.html'
+  };
 });

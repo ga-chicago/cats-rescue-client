@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="AdoptionApp">
+<head>
+    <title>Pet Adoption</title>
+    <!--<script src="/javascripts/jquery.min.js"></script>-->
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="/javascripts/angular-route.min.js"></script>
+    <script src="/javascripts/adoptionApp.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <section>
+        <article>
+            <h3>Dog Adoption List</h3>
+            <p>Please feel free to contact us to visit any dog you find here.</p>
+        </article>
+
+        <article ng-controller="DogsListForAdoptionCtrl">
+            <form ng-submit="create(name, note, image)">
+                <input type="text" ng-model="name" placeholder="Name of your pet">
+                <input type="text" ng-model="note" placeholder="Tell us about them!">
+                <input type="text" ng-model="image" placeholder="URL to image of your pet">
+                <input type="submit" value="List your pet for adoption">
+            </form>
+        </article>
+
+        <article ng-controller="DogsAdoptionListCtrl">
+            <h3>Current Dogs for Adoption</h3>
+            <p>We will fetch results from {{url}}</p>
+            <ul>
+                <li ng-repeat="dog in dogs">
+                    <h5>{{dog.name}}</h5>
+                    <p>{{dog.note}}</p>
+                    <p>
+                        <img src="{{dog.image}}" alt="photo of dog" />
+                    </p>
+                </li>
+            </ul>
+        </article>
+    </section>
+</body>
